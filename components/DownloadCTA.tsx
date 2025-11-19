@@ -18,8 +18,9 @@ export default function DownloadCTA() {
         {/* Download Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
           <a
-            href="/Rosota Copilot for MacOS.zip"
-            download
+            href="https://drive.google.com/file/d/1NvDkRYVRdwrQter4uvwqZP699UX1vl5o/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center px-6 py-3 bg-raycast-text text-raycast-white text-sm font-medium rounded-button hover:bg-opacity-80 transition-all duration-200 shadow-lg hover:shadow-xl"
           >
             <Image

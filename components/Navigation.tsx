@@ -56,8 +56,9 @@ export default function Navigation() {
           {/* Download Button */}
           <div className="hidden md:flex items-center gap-2">
             <a
-              href="/Rosota Copilot for MacOS.zip"
-              download
+              href="https://drive.google.com/file/d/1NvDkRYVRdwrQter4uvwqZP699UX1vl5o/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center px-4 py-2 bg-raycast-text text-raycast-white text-sm font-normal rounded-button hover:bg-opacity-80 transition-all duration-200 shadow-sm hover:shadow-md"
             >
               <Image

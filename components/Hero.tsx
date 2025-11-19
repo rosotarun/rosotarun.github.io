@@ -45,8 +45,9 @@ export default function Hero() {
             }`}
           >
             <a
-              href="/Rosota Copilot for MacOS.zip"
-              download
+              href="https://drive.google.com/file/d/1NvDkRYVRdwrQter4uvwqZP699UX1vl5o/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-6 py-3 bg-raycast-text text-raycast-white text-sm font-medium rounded-button hover:bg-opacity-80 transition-all duration-200 shadow-lg hover:shadow-xl"
             >
               <Image
@@ -118,55 +119,17 @@ export default function Hero() {
             <div className="w-[600px] h-[600px] bg-gradient-to-r from-blue-100/40 via-cyan-100/40 to-teal-100/40 rounded-full blur-3xl opacity-60"></div>
           </div>
 
-          {/* Floating Card */}
-          <div className="relative max-w-5xl mx-auto">
+          {/* Embedded Product Video */}
+          <div className="relative max-w-5xl mx-auto px-4">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-raycast-border bg-raycast-white transform hover:scale-[1.01] transition-transform duration-300">
-              {/* Placeholder for Copilot UI Screenshot */}
-              <div className="aspect-[16/10] bg-gradient-to-br from-gray-50 via-white to-gray-50">
-                <div className="w-full h-full flex items-center justify-center p-12">
-                  <div className="text-center space-y-6">
-                    {/* Mock Window Chrome */}
-                    <div className="max-w-4xl mx-auto">
-                      <div className="bg-raycast-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
-                        {/* Window Header */}
-                        <div className="flex items-center gap-2 px-4 py-3 bg-gray-50 border-b border-gray-200">
-                          <div className="flex gap-2">
-                            <div className="w-3 h-3 rounded-full bg-red-400"></div>
-                            <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
-                            <div className="w-3 h-3 rounded-full bg-green-400"></div>
-                          </div>
-                          <div className="flex-1 text-center">
-                            <span className="text-xs text-gray-500 font-medium">Rosota Copilot</span>
-                          </div>
-                        </div>
-                        {/* Window Content */}
-                        <div className="p-8 bg-raycast-white">
-                          <div className="space-y-4">
-                            <div className="w-32 h-32 mx-auto bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl flex items-center justify-center">
-                              <svg
-                                className="w-16 h-16 text-white"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth={2}
-                                  d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
-                                />
-                              </svg>
-                            </div>
-                            <div className="space-y-2">
-                              <div className="h-3 bg-gray-200 rounded w-3/4 mx-auto"></div>
-                              <div className="h-3 bg-gray-200 rounded w-1/2 mx-auto"></div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <div className="aspect-video bg-black">
+                <iframe
+                  src="https://www.youtube.com/embed/pq5PjcEzr14?rel=0&autoplay=1&mute=1&playsinline=1"
+                  title="Rosota Copilot demo video"
+                  className="w-full h-full"
+                  allow="autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
               </div>
             </div>
           </div>
