@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Script from 'next/script';
 import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
 import Features from '@/components/Features';
@@ -24,6 +25,30 @@ export default function Home() {
         />
         <meta property="og:type" content="website" />
       </Head>
+
+      {/* Ezoic Privacy Scripts - 가장 먼저 로드 */}
+      <Script
+        src="https://cmp.gatekeeperconsent.com/min.js"
+        data-cfasync="false"
+        strategy="beforeInteractive"
+      />
+      <Script
+        src="https://the.gatekeeperconsent.com/cmp.min.js"
+        data-cfasync="false"
+        strategy="beforeInteractive"
+      />
+
+      {/* Ezoic Header Script */}
+      <Script
+        src="//www.ezojs.com/ezoic/sa.min.js"
+        strategy="afterInteractive"
+      />
+      <Script id="ezoic-init" strategy="afterInteractive">
+        {`
+          window.ezstandalone = window.ezstandalone || {};
+          ezstandalone.cmd = ezstandalone.cmd || [];
+        `}
+      </Script>
 
       <div className="min-h-screen bg-raycast-white">
         <Navigation />

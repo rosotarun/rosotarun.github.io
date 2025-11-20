@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "next build && gh-pages -d out"
+    "update-ads-txt": "curl -L https://srv.adstxtmanager.com/19390/rosota.store > public/ads.txt",
+    "prebuild": "npm run update-ads-txt",
+    "deploy": "npm run update-ads-txt && next build && gh-pages -d out"
   },
   "dependencies": {
     "next": "^14.0.4",

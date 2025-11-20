@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Script from 'next/script';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 export default function Hero() {
@@ -132,6 +133,18 @@ export default function Hero() {
                 />
               </div>
             </div>
+
+            {/* ✨ Ezoic 광고 영역 - 유튜브 영상 밑 ✨ */}
+            <div className="mt-12 flex justify-center">
+              <div id="ezoic-pub-ad-placeholder-111"></div>
+            </div>
+            <Script id="ezoic-ad-111" strategy="lazyOnload">
+              {`
+                ezstandalone.cmd.push(function () {
+                  ezstandalone.showAds(111);
+                });
+              `}
+            </Script>
           </div>
         </div>
       </div>
