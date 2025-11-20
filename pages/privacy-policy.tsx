@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import Script from 'next/script';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 
@@ -12,6 +13,30 @@ export default function PrivacyPolicyPage() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      {/* Ezoic Privacy Scripts */}
+      <Script
+        src="https://cmp.gatekeeperconsent.com/min.js"
+        data-cfasync="false"
+        strategy="beforeInteractive"
+      />
+      <Script
+        src="https://the.gatekeeperconsent.com/cmp.min.js"
+        data-cfasync="false"
+        strategy="beforeInteractive"
+      />
+
+      {/* Ezoic Header Script */}
+      <Script
+        src="//www.ezojs.com/ezoic/sa.min.js"
+        strategy="afterInteractive"
+      />
+      <Script id="ezoic-init-privacy" strategy="afterInteractive">
+        {`
+          window.ezstandalone = window.ezstandalone || {};
+          ezstandalone.cmd = ezstandalone.cmd || [];
+        `}
+      </Script>
 
       <Navigation />
 
@@ -92,6 +117,23 @@ export default function PrivacyPolicyPage() {
                   className="text-raycast-text hover:underline"
                 >
                   https://www.ezoic.com/privacy-policy/
+                </a>
+              </p>
+              
+              {/* Ezoic Privacy Policy Embed */}
+              <div className="mt-6 p-4 bg-raycast-bg border border-raycast-border rounded-xl">
+                <span id="ezoic-privacy-policy-embed"></span>
+              </div>
+              
+              <p className="mt-3 text-sm text-raycast-text-secondary">
+                For detailed information about cookies and data collection used by Ezoic and its partners, please visit:{' '}
+                <a 
+                  href="http://g.ezoic.net/privacy/rosota.store" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-raycast-text hover:underline"
+                >
+                  Ezoic Privacy Disclosure
                 </a>
               </p>
 
