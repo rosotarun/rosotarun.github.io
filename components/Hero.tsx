@@ -125,7 +125,7 @@ export default function Hero() {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-raycast-border bg-raycast-white transform hover:scale-[1.01] transition-transform duration-300">
               <div className="aspect-video bg-black">
                 <iframe
-                  src="https://www.youtube.com/embed/pq5PjcEzr14?rel=0&autoplay=1&mute=1&playsinline=1"
+                  src="https://www.youtube.com/embed/zsbTKHpqdps?rel=0&autoplay=1&mute=1&playsinline=1"
                   title="Rosota Copilot demo video"
                   className="w-full h-full"
                   allow="autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
