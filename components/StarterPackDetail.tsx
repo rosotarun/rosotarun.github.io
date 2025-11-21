@@ -69,6 +69,9 @@ export default function StarterPackDetail() {
             >
               Buy Hardware
             </a>
+            <p className="text-center text-xs text-gray-500">
+              구매는 외부 판매처로 이동합니다.
+            </p>
             <p className="text-center text-sm uppercase tracking-[0.2em] text-gray-600">
               Build your first step into Physical AI.
             </p>

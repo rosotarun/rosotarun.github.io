@@ -87,6 +87,9 @@ export default function Specifications() {
                 Download Copilot First
               </a>
             </div>
+            <p className="text-xs text-gray-500 text-center mt-2">
+              구매는 외부 판매처로 이동합니다.
+            </p>
             <p className="text-sm text-raycast-text-secondary mt-6">
               Questions? Contact us at{' '}
               <a href="mailto:rosotarun@gmail.com" className="text-raycast-text hover:underline">
