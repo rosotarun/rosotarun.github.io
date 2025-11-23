@@ -1,9 +1,24 @@
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co';
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-key';
+// 클라이언트 사이드에서도 환경 변수 접근 가능하도록
+const getSupabaseUrl = () => {
+  if (typeof window !== 'undefined') {
+    return (window as any).__NEXT_DATA__?.env?.NEXT_PUBLIC_SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
+  }
+  return process.env.NEXT_PUBLIC_SUPABASE_URL;
+};
 
-if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+const getSupabaseKey = () => {
+  if (typeof window !== 'undefined') {
+    return (window as any).__NEXT_DATA__?.env?.NEXT_PUBLIC_SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  }
+  return process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+};
+
+const supabaseUrl = getSupabaseUrl() || 'https://placeholder.supabase.co';
+const supabaseAnonKey = getSupabaseKey() || 'placeholder-key';
+
+if (!getSupabaseUrl() || !getSupabaseKey()) {
   console.warn('Supabase environment variables are not set. Some features may not work.');
 }
 

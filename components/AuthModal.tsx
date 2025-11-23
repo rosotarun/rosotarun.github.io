@@ -27,9 +27,13 @@ export default function AuthModal({ isOpen, onClose, mode, onModeChange }: AuthM
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Supabase 설정 확인
-    if (!isSupabaseConfigured()) {
-      setError('회원가입 및 로그인 기능을 사용하려면 Supabase 설정이 필요합니다. SUPABASE_SETUP.md 파일을 참고하여 설정해주세요.');
+    // Supabase 설정 확인 (더 정확한 체크)
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+    
+    if (!supabaseUrl || supabaseUrl === 'https://placeholder.supabase.co' || 
+        !supabaseKey || supabaseKey === 'placeholder-key') {
+      setError('회원가입 및 로그인 기능을 사용하려면 Supabase 설정이 필요합니다. .env.local 파일을 확인하고 개발 서버를 재시작해주세요.');
       return;
     }
 
