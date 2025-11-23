@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useAuth } from '@/hooks/useAuth';
+import AuthModal from '@/components/AuthModal';
 
 export default function Navigation() {
   const router = useRouter();
+  const { user, signOut } = useAuth();
+  const [authModalOpen, setAuthModalOpen] = useState(false);
+  const [authMode, setAuthMode] = useState<'login' | 'signup'>('login');
   const isActive = (path: string) => router.pathname === path;
   const baseLinkClass =
     'text-sm text-raycast-text-secondary hover:text-raycast-text transition-colors duration-200';
@@ -51,9 +56,19 @@ export default function Navigation() {
             >
               Hardware
             </Link>
+            <Link
+              href="/community"
+              className={`${baseLinkClass} ${
+                isActive('/community')
+                  ? 'font-semibold text-raycast-text underline underline-offset-4'
+                  : ''
+              }`}
+            >
+              Community
+            </Link>
           </div>
 
-          {/* Download Button */}
+          {/* Download Button & Auth */}
           <div className="hidden md:flex items-center gap-2">
             <a
               href="https://drive.google.com/file/d/1NvDkRYVRdwrQter4uvwqZP699UX1vl5o/view?usp=sharing"
@@ -84,9 +99,39 @@ export default function Navigation() {
               />
               Windows
             </a>
+            {user ? (
+              <div className="flex items-center gap-2 ml-2">
+                <span className="text-sm text-raycast-text-secondary">
+                  {user.email?.split('@')[0]}
+                </span>
+                <button
+                  onClick={signOut}
+                  className="px-4 py-2 text-sm text-raycast-text-secondary hover:text-raycast-text transition-colors"
+                >
+                  로그아웃
+                </button>
+              </div>
+            ) : (
+              <button
+                onClick={() => {
+                  setAuthMode('login');
+                  setAuthModalOpen(true);
+                }}
+                className="ml-2 px-4 py-2 text-sm text-raycast-text-secondary hover:text-raycast-text transition-colors"
+              >
+                로그인
+              </button>
+            )}
           </div>
         </div>
       </div>
+
+      <AuthModal
+        isOpen={authModalOpen}
+        onClose={() => setAuthModalOpen(false)}
+        mode={authMode}
+        onModeChange={(newMode) => setAuthMode(newMode)}
+      />
     </nav>
   );
 }
